@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Constraint Learning for Parametric Point Cloud">
+  <meta name="keywords" content="point cloud, 3D computer vision, deep learning, CAD shapes">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Constraint Learning for Parametric Point Cloud</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/index.js"></script>
+<style>
+#interactive {
+  position: relative;
+  display: inline-block;
+  width: 768px;
+  aspect-ratio: 16/9;
+  max-width: 100%;
+}
+#interactive canvas, #interactive svg, #interactive #glfailed {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+#interactive svg {
+  pointer-events: none;
+}
+#interactive #glfailed {
+  color: #f88;
+  background: black;
+  display: none;
+}
+.load img {
+  width: 128px;
+  height: 72px;
+  margin-right: 4px;
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Constraint Learning for Parametric Point Cloud</h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="">Xi Cheng</a>,
+            </span>
+            <span class="author-block">
+              <a href="">Ruiqi Lei</a>,
+            </span>
+            <span class="author-block">
+              <a href="">Di Huang</a>,
+            </span>
+            <span class="author-block">
+              <a href="">Zhichao Liao</a>,
+            </span>
+            <span class="author-block">
+              <a href="">Fengyuan Piao</a>,
+            </span>
+            <span class="author-block">
+              <a href="">Yan Chen</a>,
+            </span>
+            <span class="author-block">
+              <a href="">Pingfa Feng</a>,
+            </span>
+            <span class="author-block">
+              <a href="">Long Zeng</a><sup>&#9993</sup>
+            </span>
+            
+          </div>
+
+          <div class="is-size-5 publication-authors"> 
+            <span class="author-block" style="font-size: smaller;"> &#9993 Corresponding authors </span> 
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Tsinghua Shenzhen International Graduate School, Tsinghua University, Shenzhen, China </span>
+          </div>
+          
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="http://arxiv.org/abs/2408.05966"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/di-huang/Freehand-Sketch-Generation-from-Mechanical-Components/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+
+          <!-- Author Contributions Section -->
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Parametric point clouds are sampled from CAD shapes, have become increasingly prevalent in industrial manufacturing. However, most existing point cloud learning methods focus on the geometric features, such as local and global features or developing efficient convolution operations, overlooking the important attribute of constraints inherent in CAD shapes, which limits these methods' ability to fully comprehend CAD shapes. To address this issue, we analyzed the effect of constraints, and proposed its deep learning-friendly representation, after that, the Constraint Feature Learning Network (CstNet) is developed to extract and leverage constraints. Our CstNet includes two stages. The Stage 1 extracts constraints from B-Rep data or point cloud. The Stage 2 leverages coordinates and constraints to enhance the comprehend of CAD shapes. Additionally, we built up the Parametric 20,000 Multi-modal Dataset for the scarcity of labeled B-Rep datasets. Experiments demonstrate that our CstNet achieved state-of-the-art performance on both public and proposed CAD shapes datasets. To the best of our knowledge, CstNet is the first constraint-based learning method tailored for CAD shapes analysis.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+<section class="section" id="teaser image">
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-six-fifths">
+      <h2 class="title is-3">Motivation</h2>
+      <div class="content has-text-justified">
+        <p>
+          Some similar CAD shapes serve different functions. The eccentric wheel has a rotation axis that is offset from its outer cylindrical surface, facilitating precise positioning or tension adjustment. In contrast, the flywheel has a coaxial rotation axis with its outer cylindrical surface and is used to store rotational kinetic energy. Although these shapes are challenging to distinguish visually, they can be easily differentiated from the perspective of constraints.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="content has-text-justified">
+          <p>
+            <b>
+              <centering>
+                <div style="text-align: center;">
+                  <img id="teaser" width="80%" src="static/images/motivation.png">     
+                </div><br>
+              </centering>
+            </b>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="framework image">
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-six-fifths">
+      <h2 class="title is-3">Framework</h2>
+    </div>
+  </div>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="content has-text-justified">
+          <p>
+            <b>
+              <centering>
+                <div style="text-align: center;">
+                  <img id="framework" width="100%" src="static/images/framework.png">     
+                </div><br>
+              </centering>
+            </b>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<br>
+<section>
+<br>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+      @misc{liao2024freehand,
+        title={Freehand Sketch Generation from Mechanical Components},
+        author={Liao, Zhichao and Huang, Di and Fang, Heming and Ma, Yue and Piao, Fengyuan and Li, Xinghui and Zeng, Long and Feng, Pingfa},
+        year={2024},
+        eprint={2408.05966},
+        archivePrefix={arXiv},
+        primaryClass={cs.CV},
+        url={https://arxiv.org/abs/2408.05966},
+      }
+    </code></pre>
+  </div>
+</section>
+
+</body>
+</html>
+
