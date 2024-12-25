@@ -59,32 +59,32 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Constraint Learning for<br>Parametric Point Cloud</h1>
+          <h1 class="title is-1 publication-title">Constraint Learning for Parametric Point Cloud</h1>
 
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="">Xi Cheng</a><sup>1</sup>,
+              <a href="">Xi Cheng</a>,
             </span>
             <span class="author-block">
-              <a href="">Ruiqi Lei</a><sup>1</sup>,
+              <a href="">Ruiqi Lei</a>,
             </span>
             <span class="author-block">
-              <a href="">Di Huang</a><sup>1</sup>,
+              <a href="">Di Huang</a>,
             </span>
             <span class="author-block">
-              <a href="">Zhichao Liao</a><sup>1</sup>,
+              <a href="">Zhichao Liao</a>,
             </span>
             <span class="author-block">
-              <a href="">Fengyuan Piao</a><sup>1</sup>,
+              <a href="">Fengyuan Piao</a>,
             </span>
             <span class="author-block">
-              <a href="">Yan Chen</a><sup>1</sup>,
+              <a href="">Yan Chen</a>,
             </span>
             <span class="author-block">
-              <a href="">Pingfa Feng</a><sup>1,2</sup>,
+              <a href="">Pingfa Feng</a>,
             </span>
             <span class="author-block">
-              <a href="">Long Zeng</a><sup>1,&#9993</sup>
+              <a href="">Long Zeng</a><sup>&#9993</sup>
             </span>
             
           </div>
@@ -94,15 +94,14 @@
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Tsinghua Shenzhen International Graduate School, Tsinghua University, Shenzhen, China </span>
-            <span class="author-block"><sup>2</sup>Department of Mechanical Engineering, Tsinghua University, Beijing, China </span>
+            <span class="author-block">Tsinghua Shenzhen International Graduate School, Tsinghua University, Shenzhen, China </span>
           </div>
           
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2411.07747"
+                <a href="http://arxiv.org/abs/2408.05966"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -122,7 +121,7 @@
               </span>
               <!-- Dataset Link. -->
               <span class="link-block">
-                <a href="https://data.mendeley.com/datasets/k6yzcks7g4/1"
+                <a href="https://pan.baidu.com/s/15F_-jz_XnFuW65k5aqjPNg?pwd=1234"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-archive"></i>
@@ -152,13 +151,14 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Parametric point clouds are sampled from CAD shapes, and have become increasingly prevalent in industrial manufacturing. However, most existing point cloud learning methods focus on the geometric features, such as developing efficient convolution operations, overlooking the important attribute of constraints inherent in CAD shapes, which limits these methods' ability to comprehend CAD shapes fully. To address this issue, we analyzed the effect of constraints, and proposed its deep learning-friendly representation, after that, the Constraint Feature Learning Network (CstNet) was developed to extract and leverage constraints. Our CstNet includes two stages. Stage 1 extracts constraints from B-Rep data or point cloud. Stage 2 leverages coordinates and constraints to enhance the comprehension of CAD shapes. Additionally, we built up the Parametric 20,000 Multi-modal Dataset for the scarcity of labeled B-Rep datasets. Experiments demonstrate that our CstNet achieved state-of-the-art performance on both public and proposed CAD shape datasets. To the best of our knowledge, CstNet is the first constraint-based learning method tailored for CAD shape analysis.
+            Parametric point clouds are sampled from CAD shapes, have become increasingly prevalent in industrial manufacturing. However, most existing point cloud learning methods focus on the geometric features, such as local and global features or developing efficient convolution operations, overlooking the important attribute of constraints inherent in CAD shapes, which limits these methods' ability to fully comprehend CAD shapes. To address this issue, we analyzed the effect of constraints, and proposed its deep learning-friendly representation, after that, the Constraint Feature Learning Network (CstNet) is developed to extract and leverage constraints. Our CstNet includes two stages. The Stage 1 extracts constraints from B-Rep data or point cloud. The Stage 2 leverages coordinates and constraints to enhance the comprehend of CAD shapes. Additionally, we built up the Parametric 20,000 Multi-modal Dataset for the scarcity of labeled B-Rep datasets. Experiments demonstrate that our CstNet achieved state-of-the-art performance on both public and proposed CAD shapes datasets. To the best of our knowledge, CstNet is the first constraint-based learning method tailored for CAD shapes analysis.
           </p>
         </div>
       </div>
     </div>
     <!--/ Abstract. -->
 
+    <!-- motivation Section -->
 <section class="section" id="teaser image">
   <div class="columns is-centered has-text-centered">
     <div class="column is-six-fifths">
@@ -178,7 +178,7 @@
             <b>
               <centering>
                 <div style="text-align: center;">
-                  <img id="teaser" width="80%" src="static/images/motivation.png">     
+                  <img id="teaser" width="60%" src="static/images/motivation.png">     
                 </div><br>
               </centering>
             </b>
@@ -189,10 +189,57 @@
   </div>
 </section>
 
+<!-- validation Section -->
+<section class="section" id="validation_image">
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-six-fifths">
+      <h2 class="title is-3">Idea Validation Experiments</h2>
+      <div class="content has-text-justified">
+        <p>
+          Constraints are crucial for CAD shapes, can they be utilized to enhance deep learning methods' performance? 
+          To answer above question, we designed the following validation experiments. The objective is to compare the prisms shown in left figure with cuboids. 
+          In each experiment, only prisms with a specific angle are selected, creating a binary classification task between prisms and cuboids. 
+          Consequently, eight independent experiments are conducted to cover all angles. As the prism’s angle approaches 90°, its resemblance to cuboids increases, making it progressively more challenging to distinguish them. 
+          The constraint-aware model is built on PointNet++ backbone, this model predicts constraints and then adopts it for classification.
+        </p>
+        <p>
+          The experimental results are presented in the right figure, which demonstrating the constraint enhanced the model's comprehension of CAD shapes.
+        </p>
+
+      </div>
+    </div>
+  </div>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="content has-text-justified">
+          <p>
+            <b>
+              <centering>
+                <div style="text-align: center;">
+                  <img id="prisms" width="100%" src="static/images/valid_experi.png">
+                </div><br>
+              </centering>
+            </b>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- framework Section -->
 <section class="section" id="framework image">
   <div class="columns is-centered has-text-centered">
     <div class="column is-six-fifths">
       <h2 class="title is-3">Framework</h2>
+      <div class="content has-text-justified">
+        <p>
+          The top side illustrates the overall architecture of CstNet, comprising two stages. 
+          Stage 1 is designed for constraint acquisition. When B-Rep data is available, the CST-BRep module is utilized to extract constraints; otherwise, use the CST-PCD module. 
+          Stage 2 performs constraint feature learning, facilitating a deeper understanding of CAD shapes. The bottom side presents the details of module design.
+        </p>
+      </div>
     </div>
   </div>
   <div class="container is-max-desktop">
@@ -214,6 +261,159 @@
   </div>
 </section>
 
+<!-- dataset Section -->
+<section class="section" id="dataset image">
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-six-fifths">
+      <h2 class="title is-3">Parametric20000 Dataset</h2>
+      <div class="content has-text-justified">
+        <p>
+          Parametric20000 Dataset is a multi-modal CAD shapes dataset built by our team, which contains B-Rep, Mesh, and point cloud. 
+          Most existing CAD shape datasets consist of mesh files. 
+          While mesh files could approximate the appearance of CAD shapes, lack crucial boundary information. 
+          In contrast, B-Rep data serves as the native representation of CAD shapes and is therefore more suitable for dataset construction. 
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="content has-text-justified">
+          <p>
+            <b>
+              <centering>
+
+                <div style="text-align: center;">
+                  <img id="dataset models" width="65%" src="static/images/model_show.png">
+                  <img id="dataset percentage" width="30%" src="static/images/data_percentage.png">
+                  <img id="dataset statis" width="100%" src="static/images/data_distribute.png">
+                </div>
+
+              </centering>
+            </b>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- experiment Section -->
+<section class="section" id="experiment image">
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-six-fifths">
+      <h2 class="title is-3">Experiments</h2>
+      <div class="content has-text-justified">
+        <p>
+          We have conducted classification on MCB, Parametric20000, and segmentation on 360 Gallery.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="content has-text-justified">
+          <p>
+            <b>
+              <centering>
+                <div style="text-align: center;">
+                  <img id="experiment" width="100%" src="static/images/MCB.png">     
+                </div><br>
+              </centering>
+
+              <centering>
+                <div style="text-align: center;">
+                  <img id="360" width="45%" src="static/images/360 gallery.png" style="float: left;">
+                  <img id="ablation" width="45%" src="static/images/Ablation.png" style="float: right;">
+                </div><br>
+              </centering>
+
+            </b>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- experiment Section -->
+<section class="section" id="others image">
+
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-six-fifths">
+      <h2 class="title is-3">Others</h2>
+    </div>
+  </div>
+
+  <p>
+    Constraint prediction experiments.<br>
+    ABC:
+  </p>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="content has-text-justified">
+          <p>
+            <b>
+              <centering>
+                <div style="text-align: center;">
+                  <img id="abc" width="70%" src="static/images/pred_of_abc3.png">     
+                </div><br>
+              </centering>
+            </b>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p>
+    MCB:
+  </p>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="content has-text-justified">
+          <p>
+            <b>
+              <centering>
+                <div style="text-align: center;">  
+                  <img id="mcb_pred" width="70%" src="static/images/pred_of_mcb5.png">
+                </div><br>
+              </centering>
+            </b>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p>
+    KNN and SurfaceKNN:
+  </p>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="content has-text-justified">
+          <p>
+            <b>
+              <centering>
+                <div style="text-align: center;">  
+                  <img id="surfknn" width="80%" src="static/images/knnsurfknn.png">
+                </div><br>
+              </centering>
+            </b>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>
+
 <br>
 <section>
 <br>
@@ -222,14 +422,14 @@
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>
-      @misc{cstnet2024,
-            title={Constraint Learning for Parametric Point Cloud}, 
-            author={Xi Cheng and Ruiqi Lei and Di Huang and Zhichao Liao and Fengyuan Piao and Yan Chen and Pingfa Feng and Long Zeng},
-            year={2024},
-            eprint={2411.07747},
-            archivePrefix={arXiv},
-            primaryClass={cs.CV},
-            url={https://arxiv.org/abs/2411.07747}, 
+      @misc{liao2024freehand,
+        title={Freehand Sketch Generation from Mechanical Components},
+        author={Liao, Zhichao and Huang, Di and Fang, Heming and Ma, Yue and Piao, Fengyuan and Li, Xinghui and Zeng, Long and Feng, Pingfa},
+        year={2024},
+        eprint={2408.05966},
+        archivePrefix={arXiv},
+        primaryClass={cs.CV},
+        url={https://arxiv.org/abs/2408.05966},
       }
     </code></pre>
   </div>
