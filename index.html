@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Constraint Learning for Parametric Point Cloud">
+        content="Constraint-Aware Feature Learning for Parametric Point Cloud">
   <meta name="keywords" content="point cloud, 3D computer vision, deep learning, CAD shapes">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Constraint Learning for Parametric Point Cloud</title>
+  <title>Constraint-Aware Feature Learning for Parametric Point Cloud</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -153,7 +153,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Parametric point clouds are sampled from CAD shapes, have become increasingly prevalent in industrial manufacturing. However, most existing point cloud learning methods focus on the geometric features, such as local and global features or developing efficient convolution operations, overlooking the important attribute of constraints inherent in CAD shapes, which limits these methods' ability to fully comprehend CAD shapes. To address this issue, we analyzed the effect of constraints, and proposed its deep learning-friendly representation, after that, the Constraint Feature Learning Network (CstNet) is developed to extract and leverage constraints. Our CstNet includes two stages. The Stage 1 extracts constraints from B-Rep data or point cloud. The Stage 2 leverages coordinates and constraints to enhance the comprehend of CAD shapes. Additionally, we built up the Parametric 20,000 Multi-modal Dataset for the scarcity of labeled B-Rep datasets. Experiments demonstrate that our CstNet achieved state-of-the-art performance on both public and proposed CAD shapes datasets. To the best of our knowledge, CstNet is the first constraint-based learning method tailored for CAD shapes analysis.
+            Parametric point clouds are sampled from CAD shapes and are becoming increasingly common in industrial manufacturing. Most existing CAD-specific deep learning methods only focus on geometric features, while overlooking constraints which are inherent and important in CAD shapes. This limits their ability to discern CAD shapes with similar appearance but different constraints. To tackle this challenge, we first analyze the constraint importance via a simple validation experiment. Then, we introduce a deep learning-friendly constraints representation with three vectorized components, and design a constraint-aware feature learning network (CstNet), which includes two stages. Stage 1 extracts constraint feature from B-Rep data or point cloud based on shape local information. It enables better generalization ability to unseen dataset after model pre-training. Stage 2 employs attention layers to adaptively adjust the weights of three constraints' components. It facilitates the effective utilization of constraints. In addition, we built the first multi-modal parametric-purpose dataset, i.e. Param20K, comprising about 20K shape instances of 75 classes. On this dataset, we performed the classification and rotation robustness experiments, and CstNet achieved 3.52% and 26.17% absolute improvements in instance accuracy over the state-of-the-art methods, respectively. To the best of our knowledge, CstNet is the first constraint-aware deep learning method tailored for parametric point cloud analysis in CAD domain.
           </p>
         </div>
       </div>
